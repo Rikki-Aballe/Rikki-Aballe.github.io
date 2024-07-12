@@ -1,10 +1,12 @@
 <!DOCTYPE html>
 <html>
+
     <!--Head-->
     <head>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width" />
         <title>Rikki Aballe</title>
+        <link rel="shortcut icon" type="img/png" href="images/android-chrome-512x512.png">
         <link rel="stylesheet" type="text/css" href="stylesheet/portfolio.css">
     </head> 
 
@@ -14,9 +16,12 @@
         <!--Navbar-->
         <div class="Navbar">
             <a class="active" href="#home">Home</a>
-            <a href="#About">About</a>>
+            <!--new section added-->
+            <a href="#Slideshow">Slideshow</a>
+            <a href="#About">About</a>
             <a href="#GitHub">GitHub</a>
-            <a href="#Contact">Contact</a>
+            <!-- Onclick and ondblclick functions added to open and close the contact form-->
+            <a onclick="openForm()" ondblclick="closeForm()" class="#contact">Contact</a>
         </div>
 
         <!--Breaks inserted to add space between navbar and the first headig-->
@@ -39,7 +44,7 @@
                 <p class="center">
                     <q>The computer programmer is a creator of universes for which he alone is the lawgiver
                         <br>No playwright, no stage director, no emperor, however powerful, has ever exercised such absolute authority to arrange a stage or
-                        <br>Field of battle and to command such unswervingly dutiful actors or trrops.
+                        <br>Field of battle and to command such unswervingly dutiful actors or troops.
                     </q>
                     <br> -Joseph Weizenbaum
                     <br>
@@ -48,6 +53,40 @@
                     <br>Thank you for stopping by and enjoy!
                 </p>
             </strong>
+        </div>
+
+        <!--Slideshow section added-->
+        <div id="Slideshow">
+            <div id="Slideshow_Background">
+                <div id="Slideshow_Container">
+                    <!--slide 1 of -->
+                    <div class="mySlides fade">
+                        <img class="Slideshow_Images" src="images/HTML_CSS_and_JavaScript.jpeg" alt="HTML, CSS, and JavaScript">
+                        <div class="text">Trained in: HTML, CSS, JavaScript,</div>
+                    </div>
+                    <!--slide 2 of -->
+                    <div class="mySlides fade">
+                        <img class="Slideshow_Images" src="images/Python.png" alt="Python">
+                        <div class="text">the popular programming language Python,</div>
+                    </div>
+                    <!--slide 3 of -->
+                    <div class="mySlides fade">
+                        <img class="Slideshow_Images" src="images/Square-Personal-Photo.png" alt="HTML, CSS, and JavaScript">
+                        <div class="text"><a class="white-text contact" onclick="openForm()">Contact me now</a></div>
+                    </div>
+                    <!--Previous and next buttons-->
+                    <a class="Previous" onclick="plusSlides(-1)">&#10094;</a>
+                    <a class="Next" onclick="plusSlides(1)">&#10095;</a>
+                </div>
+                <br><!--adds a space between the Slideshow images and the dots-->
+
+                <!--Slideshow dots (these are another way for users to navigate through the Slideshow)-->
+                <div style="text-align: center">
+                    <span class="dot" onclick="currentSlide(1)"></span>
+                    <span class="dot" onclick="currentSlide(2)"></span>
+                    <span class="dot" onclick="currentSlide(3)"></span>
+                </div>
+            </div>
         </div>
 
         <!--About section-->
@@ -63,6 +102,7 @@
                     I am a software developer who loves learning to code!
                     <br>
                     <br>I am a graduate of <a href="https://www.learningcodeanywhere.com" target="_blank">the Tech Academy</a>'s Software Developer Boot Camp, and currently training in the following web and programming languages: HTML, CSS, Javascript, SQL, C# and more.
+                </p>
             </div>
         </div>
 
@@ -83,27 +123,27 @@
             </div>
         </div>
 
-        <!--Contact Section-->
-        <div class="Row" id="Contact">
-            <!--Contact image, left column-->
-            <div class="Column_2 Column_tall">
-                <img src="images/pisces.png" alt="Contact_Image">
-            </div>
-            <!--Contact form, right column-->
-            <div class="Column_1 Column_tall">
-                <h1>Contact</h1>
-                <!--This specifies where and how to send the form data: we are leaving it blank-->
-                <form action="https://formspree.io/f/xoqggjyk" method="POST"><!--Here we are utilisong a 3rd party servicce to submit the contact form dat, insert a 3rd party service to submit the contact form data, insert your formspree endpoint in the action attribute-->
-                    <label>Name:</label>
-                        <input type="text" placeholder="Please enter your name here">
-                    <label>Email:</label>
-                        <input type="text" placeholder="Please enter your email here">
-                    <label>Message:</label>
-                        <input type="text" id="Message" name="Message" placeholder="Please write your message here">
-                        <input type="submit" value="Submit">
+        <!--Contact form-->
+        <div id="Contact">
+            <button onclick="openForm()" class="Pop_Up_Button">Contact</button>
+            <div class="form-popup" id="myForm">
+                <form action="https://formspree.io/f/xoqggjyk" method="POST" class="form-container">
+                    <h1>Contact</h1>
+                    <label for="name"><b>Name</b></label>
+                      <input type="text" placeholder="Type your name here" name="name" id="name" required autocomplete="name">
+                    <label for="phone"><b>Phone</b></label>
+                      <input type="text" placeholder="Type your phone number here" name="phone" id="phone" autocomplete="tel">
+                    <label for="email"><b>Email</b></label>		
+                      <input type="text" placeholder="Type your email address here" name="email" id="email"required autocomplete="email">
+                    <label for="message"><b>Message</b></label>
+                      <input type="text" placeholder="Type your message here" name="message" id="message">
+         
+                    <button type="submit" class="btn">SUBMIT</button>
+                    <button type="button" class="btn cancel" onclick="closeForm()">CLOSE</button>
                 </form>
             </div>
         </div>
+        
 
         <!--Footer Section-->
         <footer>
@@ -112,5 +152,6 @@
                 <br>
             </p>
         </footer>
+        <script src="JS/personal.js"></script>
     </body>
 </html>
